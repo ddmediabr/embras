@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function SuccessCases() {
 	const cases = [
 		{
@@ -6,6 +8,7 @@ export default function SuccessCases() {
 			location: 'São Paulo',
 			span: 'md:col-span-7',
 			aspect: 'aspect-square',
+			image: '/images/case-1.png',
 		},
 		{
 			id: 2,
@@ -13,6 +16,7 @@ export default function SuccessCases() {
 			location: 'Minas Gerais',
 			span: 'md:col-span-5',
 			aspect: 'aspect-[4/5]',
+			image: '/images/hero.png',
 		},
 		{
 			id: 3,
@@ -20,6 +24,7 @@ export default function SuccessCases() {
 			location: 'Rio de Janeiro',
 			span: 'md:col-span-5',
 			aspect: 'aspect-[4/5]',
+			image: '/images/case-1.png',
 		},
 		{
 			id: 4,
@@ -27,6 +32,7 @@ export default function SuccessCases() {
 			location: 'Curitiba',
 			span: 'md:col-span-7',
 			aspect: 'aspect-video',
+			image: '/images/hero.png',
 		},
 	]
 
@@ -63,11 +69,17 @@ export default function SuccessCases() {
 						<div
 							className={`${project.aspect} bg-(--color-surface) border border-(--color-border) relative overflow-hidden transition-all duration-700 group-hover:border-(--color-accent)/30`}
 						>
-							{/* Visual placeholder for light effect inside the card */}
+							<Image
+								src={project.image}
+								alt={project.title}
+								fill
+								className="object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+							/>
+
 							<div className="absolute inset-0 bg-gradient-to-br from-transparent via-(--color-accent)/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
 
-							<div className="absolute bottom-8 left-8 text-[10px] uppercase tracking-[0.5em] text-(--color-muted) flex items-center gap-4">
-								<span className="w-8 h-[1px] bg-(--color-border)" />
+							<div className="absolute bottom-8 left-8 text-[10px] uppercase tracking-[0.5em] text-(--color-accent) z-10 flex items-center gap-4">
+								<span className="w-8 h-[1px] bg-(--color-accent)/50" />
 								{project.location}
 							</div>
 						</div>

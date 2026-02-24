@@ -1,13 +1,34 @@
 'use client'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const products = [
-	{ id: 1, name: 'Luminária Arch 01', category: 'Modern' },
-	{ id: 2, name: 'Luminária Arch 02', category: 'Industrial' },
-	{ id: 3, name: 'Luminária Arch 03', category: 'Luxury' },
-	{ id: 4, name: 'Luminária Arch 04', category: 'Minimal' },
+	{
+		id: 1,
+		name: 'Luminária Arch 01',
+		category: 'Modern',
+		image: '/images/product-1.png',
+	},
+	{
+		id: 2,
+		name: 'Luminária Arch 02',
+		category: 'Industrial',
+		image: '/images/product-2.png',
+	},
+	{
+		id: 3,
+		name: 'Luminária Arch 03',
+		category: 'Luxury',
+		image: '/images/product-1.png',
+	},
+	{
+		id: 4,
+		name: 'Luminária Arch 04',
+		category: 'Minimal',
+		image: '/images/product-2.png',
+	},
 ]
 
 export default function ProductCarousel() {
@@ -18,13 +39,11 @@ export default function ProductCarousel() {
 		() => {
 			if (!sectionRef.current || !triggerRef.current) return
 
-			// The total width of the carousel is determined by the number of items
-			// Since we have 4 items of 40vw (in desktop), we calculate the total scroll distance
 			const pin = gsap.fromTo(
 				sectionRef.current,
 				{ translateX: 0 },
 				{
-					translateX: '-150vw', // Moves far enough to show all items
+					translateX: '-150vw',
 					ease: 'none',
 					scrollTrigger: {
 						trigger: triggerRef.current,
@@ -63,13 +82,15 @@ export default function ProductCarousel() {
 							{product.category}
 						</span>
 						<div className="aspect-[3/4] bg-(--color-bg) border border-(--color-border) mb-8 relative group cursor-pointer overflow-hidden transition-all hover:border-(--color-accent)/30">
+							<Image
+								src={product.image}
+								alt={product.name}
+								fill
+								className="object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
+							/>
 							<div className="absolute inset-0 bg-gradient-to-tr from-transparent to-(--color-accent)/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-							{/* Product Image Placeholder with light effect */}
-							<div className="absolute inset-0 flex items-center justify-center opacity-20">
-								<div className="w-1 h-32 bg-(--color-accent) blur-2xl" />
-							</div>
 						</div>
-						<h3 className="text-2xl font-(--font-heading) uppercase text-(--color-accent) tracking-widest">
+						<h3 className="text-2xl font-(--font-heading) uppercase text-(--color-accent) tracking-widest leading-none">
 							{product.name}
 						</h3>
 					</div>
