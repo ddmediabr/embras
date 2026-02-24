@@ -2,6 +2,8 @@ import HomeHero from '@/components/sections/HomeHero'
 import MissionManifesto from '@/components/sections/MissionManifesto'
 import ProductCarousel from '@/components/sections/ProductCarousel'
 import SuccessCases from '@/components/sections/SuccessCases'
+import WhoWeAre from '@/components/sections/WhoWeAre'
+import Testimonials from '@/components/sections/Testimonials'
 
 export default function Home() {
 	return (
@@ -10,6 +12,8 @@ export default function Home() {
 			<ProductCarousel />
 			<MissionManifesto />
 			<SuccessCases />
+			<WhoWeAre />
+			<Testimonials />
 
 			{/* Footer refined */}
 			<footer className="py-40 px-8 border-t border-(--color-surface) text-center bg-(--color-bg)">
