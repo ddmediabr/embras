@@ -39,14 +39,14 @@ export default function MissionManifesto() {
 	return (
 		<section
 			ref={container}
-			className="py-64 px-8 flex justify-center items-center bg-[var(--color-bg)]"
+			className="py-64 px-8 flex justify-center items-center bg-(--color-bg)"
 		>
 			<p
 				ref={textRef}
-				className="text-3xl md:text-5xl max-w-5xl text-center leading-tight font-[var(--font-heading)] uppercase tracking-wide text-[var(--color-accent)]"
+				className="text-3xl md:text-5xl max-w-5xl text-center leading-tight font-(--font-heading) uppercase tracking-wide text-(--color-accent)"
 			>
 				A luz não é apenas funcional. <br />
-				<span className="text-[var(--color-muted)]">
+				<span className="text-(--color-muted)">
 					Ela é a poesia que define o espaço e o tempo.
 				</span>
 			</p>
