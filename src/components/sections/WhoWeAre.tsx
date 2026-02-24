@@ -2,10 +2,10 @@ export default function WhoWeAre() {
 	return (
 		<section className="py-64 px-8 md:px-12 bg-(--color-bg) border-t border-(--color-surface)">
 			<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-				<div className="aspect-[3/4] bg-(--color-surface) border border-(--color-border) relative max-w-md mx-auto md:ml-0">
-					<div className="absolute inset-0 bg-gradient-to-t from-(--color-bg) via-transparent to-transparent opacity-40" />
+				<div className="aspect-3/4 bg-(--color-surface) border border-(--color-border) relative max-w-md mx-auto md:ml-0">
+					<div className="absolute inset-0 bg-linear-to-t from-(--color-bg) via-transparent to-transparent opacity-40" />
 					{/* Visual for portrait lighting placeholder */}
-					<div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-(--color-accent)/5 to-transparent" />
+					<div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-(--color-accent)/5 to-transparent" />
 					<div className="absolute bottom-12 left-12">
 						<span className="text-[10px] uppercase tracking-[0.5em] text-(--color-muted)">
 							Founder & Visionary

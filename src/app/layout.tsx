@@ -3,6 +3,7 @@ import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
 import SmoothScroll from '@/components/providers/SmoothScroll'
 import Navbar from '@/components/organisms/Navbar'
+import CustomCursor from '@/components/atoms/CustomCursor'
 
 const inter = Inter({
 	variable: '--font-inter',
@@ -31,6 +32,7 @@ export default function RootLayout({
 				className={`${inter.variable} ${outfit.variable} antialiased bg-black`}
 			>
 				<SmoothScroll>
+					<CustomCursor />
 					<Navbar />
 					{children}
 				</SmoothScroll>

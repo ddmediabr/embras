@@ -15,7 +15,7 @@ export default function SuccessCases() {
 			title: 'Fazenda Aurora',
 			location: 'Minas Gerais',
 			span: 'md:col-span-5',
-			aspect: 'aspect-[4/5]',
+			aspect: 'aspect-4/5',
 			image: '/images/hero.png',
 		},
 		{
@@ -23,7 +23,7 @@ export default function SuccessCases() {
 			title: 'Apartamento Garden',
 			location: 'Rio de Janeiro',
 			span: 'md:col-span-5',
-			aspect: 'aspect-[4/5]',
+			aspect: 'aspect-4/5',
 			image: '/images/case-1.png',
 		},
 		{
@@ -76,10 +76,10 @@ export default function SuccessCases() {
 								className="object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
 							/>
 
-							<div className="absolute inset-0 bg-gradient-to-br from-transparent via-(--color-accent)/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+							<div className="absolute inset-0 bg-linear-to-br from-transparent via-(--color-accent)/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
 							<div className="absolute bottom-8 left-8 text-[10px] uppercase tracking-[0.5em] text-(--color-accent) z-10 flex items-center gap-4">
-								<span className="w-8 h-[1px] bg-(--color-accent)/50" />
+								<span className="w-8 h-px bg-(--color-accent)/50" />
 								{project.location}
 							</div>
 						</div>

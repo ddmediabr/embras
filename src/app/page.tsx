@@ -4,46 +4,45 @@ import ProductCarousel from '@/components/sections/ProductCarousel'
 import SuccessCases from '@/components/sections/SuccessCases'
 import WhoWeAre from '@/components/sections/WhoWeAre'
 import Testimonials from '@/components/sections/Testimonials'
+import ContactSection from '@/components/sections/ContactSection'
 
 export default function Home() {
 	return (
-		<main className="min-h-screen bg-(--color-bg) selection:bg-(--color-accent) selection:text-(--color-bg)">
+		<main className="min-h-screen bg-(--color-bg)">
 			<HomeHero />
 			<ProductCarousel />
 			<MissionManifesto />
 			<SuccessCases />
 			<WhoWeAre />
 			<Testimonials />
+			<ContactSection />
 
-			{/* Footer refined */}
-			<footer className="py-40 px-8 border-t border-(--color-surface) text-center bg-(--color-bg)">
-				<div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-					<h2 className="text-4xl md:text-6xl font-(--font-heading) uppercase tracking-tighter leading-none">
-						Vamos iluminar <br /> seu próximo{' '}
-						<span className="text-(--color-muted)">capítulo.</span>
-					</h2>
-					<button className="px-12 py-5 border border-(--color-accent) uppercase tracking-[0.5em] text-[10px] hover:bg-(--color-accent) hover:text-(--color-bg) transition-all duration-500 cursor-pointer">
-						Solicitar Consultoria
-					</button>
+			{/* Final Minimal Footer */}
+			<footer className="py-20 px-8 border-t border-(--color-surface) bg-(--color-bg)">
+				<div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+					<div className="flex items-center gap-2">
+						<span className="w-1.5 h-1.5 bg-white rounded-full" />
+						<span className="font-(--font-heading) uppercase tracking-[0.4em] text-[10px] text-white">
+							Embras Lighting
+						</span>
+					</div>
 
-					<div className="mt-20 pt-12 border-t border-(--color-surface) w-full flex flex-col md:flex-row justify-between items-center gap-8">
-						<p className="text-(--color-muted) text-[10px] tracking-[0.3em] uppercase">
-							&copy; 2024 Embras Premium Lighting. Built with
-							precision.
-						</p>
-						<div className="flex gap-8">
-							{['Instagram', 'LinkedIn', 'Pinterest'].map(
-								(social) => (
-									<a
-										key={social}
-										href="#"
-										className="text-(--color-muted) text-[10px] tracking-widest uppercase hover:text-(--color-accent) transition-colors"
-									>
-										{social}
-									</a>
-								)
-							)}
-						</div>
+					<p className="text-(--color-muted) text-[10px] tracking-[0.3em] uppercase">
+						&copy; 2024 Embras. Built with precision and light.
+					</p>
+
+					<div className="flex gap-8">
+						{['Instagram', 'LinkedIn', 'Pinterest'].map(
+							(social) => (
+								<a
+									key={social}
+									href="#"
+									className="text-(--color-muted) text-[10px] tracking-widest uppercase hover:text-(--color-accent) transition-colors"
+								>
+									{social}
+								</a>
+							)
+						)}
 					</div>
 				</div>
 			</footer>

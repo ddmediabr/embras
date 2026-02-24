@@ -66,7 +66,7 @@ export default function ProductCarousel() {
 				ref={sectionRef}
 				className="h-screen flex items-center relative gap-[10vw] px-[10vw] w-[250vw] bg-(--color-surface)/30"
 			>
-				<div className="flex-shrink-0 w-[40vw]">
+				<div className="shrink-0 w-[40vw]">
 					<h2 className="text-4xl md:text-6xl font-(--font-heading) uppercase leading-none">
 						Nossa <br /> Seleção <br />{' '}
 						<span className="text-(--color-muted)">Premium</span>
@@ -76,19 +76,19 @@ export default function ProductCarousel() {
 				{products.map((product) => (
 					<div
 						key={product.id}
-						className="w-[80vw] md:w-[40vw] flex-shrink-0"
+						className="w-[80vw] md:w-[40vw] shrink-0"
 					>
 						<span className="text-xs uppercase tracking-[0.3em] text-(--color-muted) mb-4 block italic">
 							{product.category}
 						</span>
-						<div className="aspect-[3/4] bg-(--color-bg) border border-(--color-border) mb-8 relative group cursor-pointer overflow-hidden transition-all hover:border-(--color-accent)/30">
+						<div className="aspect-3/4 bg-(--color-bg) border border-(--color-border) mb-8 relative group cursor-pointer overflow-hidden transition-all hover:border-(--color-accent)/30">
 							<Image
 								src={product.image}
 								alt={product.name}
 								fill
 								className="object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
 							/>
-							<div className="absolute inset-0 bg-gradient-to-tr from-transparent to-(--color-accent)/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+							<div className="absolute inset-0 bg-linear-to-tr from-transparent to-(--color-accent)/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 						</div>
 						<h3 className="text-2xl font-(--font-heading) uppercase text-(--color-accent) tracking-widest leading-none">
 							{product.name}
