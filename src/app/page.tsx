@@ -6,16 +6,37 @@ import WhoWeAre from '@/components/sections/WhoWeAre'
 import Testimonials from '@/components/sections/Testimonials'
 import ContactSection from '@/components/sections/ContactSection'
 
+// New Proposal Sections
+import PersonalGreeting from '@/components/proposal/PersonalGreeting'
+import ProposalHero from '@/components/proposal/ProposalHero'
+import WhatYouGet from '@/components/proposal/WhatYouGet'
+import ProposalCTA from '@/components/proposal/ProposalCTA'
+import NextSteps from '@/components/proposal/NextSteps'
+import ProposalFinalCTA from '@/components/proposal/ProposalFinalCTA'
+
 export default function Home() {
 	return (
 		<main className="min-h-screen bg-(--color-bg)">
-			<HomeHero />
-			<ProductCarousel />
-			<MissionManifesto />
-			<SuccessCases />
-			<WhoWeAre />
-			<Testimonials />
-			<ContactSection />
+			{/* --- NEW SECTIONS ABOVE --- */}
+			<PersonalGreeting />
+			<ProposalHero />
+			<WhatYouGet />
+
+			{/* --- EXISTING PROJECT DEMONSTRATION --- */}
+			<div id="project-preview">
+				<HomeHero />
+				<ProductCarousel />
+				<MissionManifesto />
+				<SuccessCases />
+				<WhoWeAre />
+				<Testimonials />
+				<ContactSection />
+			</div>
+
+			{/* --- NEW SECTIONS BELOW --- */}
+			<ProposalCTA />
+			<NextSteps />
+			<ProposalFinalCTA />
 
 			{/* Final Minimal Footer */}
 			<footer className="py-20 px-8 border-t border-(--color-surface) bg-(--color-bg)">
@@ -32,17 +53,15 @@ export default function Home() {
 					</p>
 
 					<div className="flex gap-8">
-						{['Instagram', 'LinkedIn', 'Pinterest'].map(
-							(social) => (
-								<a
-									key={social}
-									href="#"
-									className="text-(--color-muted) text-[10px] tracking-widest uppercase hover:text-(--color-accent) transition-colors"
-								>
-									{social}
-								</a>
-							)
-						)}
+						{['Instagram', 'LinkedIn', 'Pinterest'].map((social) => (
+							<a
+								key={social}
+								href="#"
+								className="text-(--color-muted) text-[10px] tracking-widest uppercase hover:text-(--color-accent) transition-colors"
+							>
+								{social}
+							</a>
+						))}
 					</div>
 				</div>
 			</footer>
