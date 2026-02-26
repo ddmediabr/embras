@@ -143,7 +143,7 @@ export default function HomeHero() {
 			{/* Chandelier Image Layer - Positioned over background, under text */}
 			<div className="absolute right-[5%] md:right-[15%] top-[-5%] h-[85%] w-[50%] md:w-[40%] z-10 pointer-events-none">
 				<Image
-					src="/images/lustres.png"
+					src="/images/lustres-dourado.webp"
 					alt="Chandeliers"
 					fill
 					priority
