@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
 import SmoothScroll from '@/components/providers/SmoothScroll'
-import Navbar from '@/components/organisms/Navbar'
 import CustomCursor from '@/components/atoms/CustomCursor'
 
 const inter = Inter({
@@ -33,7 +32,6 @@ export default function RootLayout({
 			>
 				<SmoothScroll>
 					<CustomCursor />
-					<Navbar />
 					{children}
 				</SmoothScroll>
 			</body>
