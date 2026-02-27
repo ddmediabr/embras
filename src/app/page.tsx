@@ -1,6 +1,6 @@
 import HeroProductsWrapper from '@/components/sections/HeroProductsWrapper'
 import ProductLines from '@/components/sections/ProductLines'
-import MissionManifesto from '@/components/sections/MissionManifesto'
+import Manifesto from '@/components/sections/Manifesto'
 import SuccessCases from '@/components/sections/SuccessCases'
 import WhoWeAre from '@/components/sections/WhoWeAre'
 import Testimonials from '@/components/sections/Testimonials'
@@ -27,6 +27,7 @@ export default function Home() {
 				<HeroProductsWrapper />
 				<ProductLines />
 				<SuccessCases />
+				<Manifesto />
 				<WhoWeAre />
 				<Testimonials />
 				<ContactSection />

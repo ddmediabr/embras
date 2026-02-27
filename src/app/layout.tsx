@@ -29,6 +29,7 @@ export default function RootLayout({
 		<html lang="pt-BR">
 			<body
 				className={`${inter.variable} ${outfit.variable} antialiased bg-black`}
+				suppressHydrationWarning
 			>
 				<SmoothScroll>
 					<CustomCursor />
