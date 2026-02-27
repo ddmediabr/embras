@@ -11,7 +11,7 @@ export default function Testimonials() {
 	]
 
 	return (
-		<section className="py-64 px-8 bg-(--color-surface)/20 border-t border-(--color-surface)">
+		<section className="py-36 px-8 bg-(--color-surface)/20 border-t border-(--color-surface)">
 			<div className="max-w-4xl mx-auto flex flex-col gap-32">
 				<span className="text-(--color-muted) uppercase tracking-[0.4em] text-xs text-center italic mb-12">
 					Clients Voices

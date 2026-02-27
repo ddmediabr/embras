@@ -36,3 +36,36 @@ body {
 	background-color: var(--color-accent);
 	color: var(--color-bg);
 }
+
+.pill {
+	background: transparent;
+	border: none;
+	padding: 0;
+	letter-spacing: 0.4em;
+	display: inline-flex;
+	flex-direction: column;
+	font-style: normal !important;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.pill::after {
+	content: '';
+	width: 40%;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-top: 8px;
+}
+
+.product-category {
+	font-size: 12px;
+	font-style: normal !important;
+	color: #5b5b5b !important;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+p {
+	color: #5b5b5b;
+	line-height: 1.6em;
+}

@@ -109,7 +109,7 @@ export default function HomeHero() {
 							)
 						)}
 					</nav>
-					<button className="rounded-none border border-white px-8 py-3 bg-transparent text-white hover:bg-white hover:text-black transition-all uppercase tracking-widest text-[10px] font-semibold">
+					<button className="rounded-none border border-white px-8 py-3 bg-transparent text-white hover:bg-white hover:text-black transition-all uppercase tracking-[2px] text-[11px] font-semibold">
 						Contato
 					</button>
 				</div>
@@ -128,12 +128,12 @@ export default function HomeHero() {
 					</h1>
 
 					<div className="mt-8 flex flex-col items-start gap-8 max-w-sm pointer-events-auto">
-						<p className="text-white/80 font-sans text-sm md:text-base font-light leading-relaxed">
+						<p className="!text-white/80 font-sans text-sm md:text-base font-light leading-relaxed">
 							Iluminação projetada para espaços onde cada detalhe
 							importa. Soluções exclusivas para residências,
 							estúdios e ambientes de alto padrão.
 						</p>
-						<button className="rounded-none border border-white/40 px-8 py-4 bg-transparent text-white hover:bg-white hover:text-black transition-all uppercase tracking-[0.2em] text-[10px] font-semibold backdrop-blur-sm">
+						<button className="rounded-none border border-white px-8 py-4 bg-transparent text-white hover:bg-white hover:text-black transition-all uppercase tracking-[2px] text-[11px] font-semibold backdrop-blur-sm">
 							Conheça nossas linhas
 						</button>
 					</div>
@@ -155,7 +155,7 @@ export default function HomeHero() {
 			<div className="absolute top-1/2 -translate-y-1/2 right-8 md:right-12 z-20">
 				<div className="relative w-0.5 h-[120px] flex justify-center">
 					{/* Dark background line (Track) */}
-					<div className="absolute inset-0 bg-[#32302D] opacity-40" />
+					<div className="absolute inset-0 bg-[#474747]" />
 
 					{/* Light moving line (Indicator) - 2px width */}
 					<div

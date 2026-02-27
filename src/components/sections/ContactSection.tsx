@@ -10,17 +10,17 @@ export default function ContactSection() {
 		<section
 			ref={sectionRef}
 			id="contato"
-			className="py-64 px-8 bg-(--color-bg) border-t border-(--color-surface) relative overflow-hidden"
+			className="py-36 px-8 bg-(--color-bg) border-t border-(--color-surface) relative overflow-hidden"
 		>
 			{/* Background Glow Effect */}
 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-(--color-accent)/5 blur-[120px] rounded-full pointer-events-none" />
 
 			<div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-16 relative z-10">
-				<span className="text-(--color-muted) uppercase tracking-[0.5em] text-xs animate-fade-in italic">
+				<span className="pill items-center text-(--color-muted) uppercase animate-fade-in mb-6 w-fit">
 					Project Inquiry
 				</span>
 
-				<h2 className="text-6xl md:text-8xl font-(--font-heading) uppercase leading-[0.85] tracking-tighter">
+				<h2 className="text-6xl md:text-8xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
 					Vamos <br /> iluminar seu <br />
 					<span className="text-(--color-muted)">
 						próximo projeto.
@@ -53,7 +53,7 @@ export default function ContactSection() {
 					</div>
 				</div>
 
-				<button className="mt-12 px-16 py-6 border border-(--color-accent) uppercase tracking-[0.6em] text-[10px] hover:bg-(--color-accent) hover:text-(--color-bg) transition-all duration-700 cursor-pointer">
+				<button className="mt-12 px-16 py-6 border border-(--color-accent) uppercase tracking-[2px] text-[11px] font-semibold hover:bg-(--color-accent) hover:text-(--color-bg) transition-all duration-700 cursor-pointer">
 					Solicitar Proposta Individualizada
 				</button>
 			</div>

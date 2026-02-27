@@ -1,6 +1,6 @@
-import HomeHero from '@/components/sections/HomeHero'
+import HeroProductsWrapper from '@/components/sections/HeroProductsWrapper'
+import ProductLines from '@/components/sections/ProductLines'
 import MissionManifesto from '@/components/sections/MissionManifesto'
-import ProductCarousel from '@/components/sections/ProductCarousel'
 import SuccessCases from '@/components/sections/SuccessCases'
 import WhoWeAre from '@/components/sections/WhoWeAre'
 import Testimonials from '@/components/sections/Testimonials'
@@ -24,9 +24,8 @@ export default function Home() {
 
 			{/* --- EXISTING PROJECT DEMONSTRATION --- */}
 			<div id="project-preview">
-				<HomeHero />
-				<ProductCarousel />
-				<MissionManifesto />
+				<HeroProductsWrapper />
+				<ProductLines />
 				<SuccessCases />
 				<WhoWeAre />
 				<Testimonials />
@@ -53,15 +52,17 @@ export default function Home() {
 					</p>
 
 					<div className="flex gap-8">
-						{['Instagram', 'LinkedIn', 'Pinterest'].map((social) => (
-							<a
-								key={social}
-								href="#"
-								className="text-(--color-muted) text-[10px] tracking-widest uppercase hover:text-(--color-accent) transition-colors"
-							>
-								{social}
-							</a>
-						))}
+						{['Instagram', 'LinkedIn', 'Pinterest'].map(
+							(social) => (
+								<a
+									key={social}
+									href="#"
+									className="text-(--color-muted) text-[10px] tracking-widest uppercase hover:text-(--color-accent) transition-colors"
+								>
+									{social}
+								</a>
+							)
+						)}
 					</div>
 				</div>
 			</footer>
