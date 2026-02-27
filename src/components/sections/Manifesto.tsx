@@ -99,7 +99,6 @@ export default function Manifesto() {
 					end: '+=300%', // 3 slides depth
 					pin: true,
 					scrub: 1,
-					invalidateOnRefresh: true,
 				},
 			})
 
@@ -107,8 +106,8 @@ export default function Manifesto() {
 			const rightTexts = gsap.utils.toArray('.manifesto-right-text')
 
 			// Initial state (Slide 0 is handled by entranceTl)
-			gsap.set(leftTexts.slice(1), { opacity: 0, y: 50 })
-			gsap.set(rightTexts.slice(1), { opacity: 0, y: 100 })
+			gsap.set(leftTexts.slice(1), { autoAlpha: 0, y: 50 })
+			gsap.set(rightTexts.slice(1), { autoAlpha: 0, y: 100 })
 
 			// Initialize SplitText for all paragraphs
 			const splits = gsap.utils.toArray('.manifesto-p').map(
@@ -139,24 +138,28 @@ export default function Manifesto() {
 			}
 
 			// Transition Slide 0 -> 1
-			tl.to(
+			tl.fromTo(
 				leftTexts[0] as Element,
-				{ opacity: 0, y: -50, duration: 0.5 },
+				{ autoAlpha: 1, y: 0 },
+				{ autoAlpha: 0, y: -50, duration: 0.5 },
 				'+=0.2'
 			)
-			tl.to(
+			tl.fromTo(
 				rightTexts[0] as Element,
-				{ opacity: 0, y: -100, duration: 0.5 },
+				{ autoAlpha: 1, y: 0 },
+				{ autoAlpha: 0, y: -100, duration: 0.5 },
 				'<'
 			)
-			tl.to(
+			tl.fromTo(
 				leftTexts[1] as Element,
-				{ opacity: 1, y: 0, duration: 0.5 },
+				{ autoAlpha: 0, y: 50 },
+				{ autoAlpha: 1, y: 0, duration: 0.5 },
 				'+=0.1'
 			)
-			tl.to(
+			tl.fromTo(
 				rightTexts[1] as Element,
-				{ opacity: 1, y: 0, duration: 0.5 },
+				{ autoAlpha: 0, y: 100 },
+				{ autoAlpha: 1, y: 0, duration: 0.5 },
 				'<'
 			)
 
@@ -171,24 +174,28 @@ export default function Manifesto() {
 			}
 
 			// Transition Slide 1 -> 2
-			tl.to(
+			tl.fromTo(
 				leftTexts[1] as Element,
-				{ opacity: 0, y: -50, duration: 0.5 },
+				{ autoAlpha: 1, y: 0 },
+				{ autoAlpha: 0, y: -50, duration: 0.5 },
 				'+=0.2'
 			)
-			tl.to(
+			tl.fromTo(
 				rightTexts[1] as Element,
-				{ opacity: 0, y: -100, duration: 0.5 },
+				{ autoAlpha: 1, y: 0 },
+				{ autoAlpha: 0, y: -100, duration: 0.5 },
 				'<'
 			)
-			tl.to(
+			tl.fromTo(
 				leftTexts[2] as Element,
-				{ opacity: 1, y: 0, duration: 0.5 },
+				{ autoAlpha: 0, y: 50 },
+				{ autoAlpha: 1, y: 0, duration: 0.5 },
 				'+=0.1'
 			)
-			tl.to(
+			tl.fromTo(
 				rightTexts[2] as Element,
-				{ opacity: 1, y: 0, duration: 0.5 },
+				{ autoAlpha: 0, y: 100 },
+				{ autoAlpha: 1, y: 0, duration: 0.5 },
 				'<'
 			)
 
@@ -204,10 +211,6 @@ export default function Manifesto() {
 
 			// Stay at slide 2 for a bit
 			tl.to({}, { duration: 0.5 })
-
-			return () => {
-				ScrollTrigger.getAll().forEach((t) => t.kill())
-			}
 		},
 		{ dependencies: [mounted], scope: sectionRef }
 	)

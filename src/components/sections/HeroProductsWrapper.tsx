@@ -88,9 +88,10 @@ export default function HeroProductsWrapper() {
 			)
 
 			// Subtle parallax/blur on EMBRAS text during transition for continuity
+			// Changed from { opacity: 1 } to { opacity: 0 } so it starts invisible on Hero and appears during scroll transition
 			gsap.fromTo(
 				embrasTextRef.current,
-				{ opacity: 1, filter: 'blur(0px)', y: '18%' },
+				{ opacity: 0, filter: 'blur(0px)', y: '18%' },
 				{
 					opacity: 0.3,
 					filter: 'blur(4px)',
@@ -98,7 +99,7 @@ export default function HeroProductsWrapper() {
 					ease: 'none',
 					scrollTrigger: {
 						trigger: carouselTriggerRef.current,
-						start: 'top bottom',
+						start: 'top 75%',
 						end: 'top top',
 						scrub: true,
 					},
@@ -143,7 +144,7 @@ export default function HeroProductsWrapper() {
 			{/* --- HERO SECTION (STICKY) --- */}
 			<section
 				ref={heroRef}
-				className="h-screen w-full flex overflow-hidden sticky top-0 z-0"
+				className="h-screen w-full flex items-center justify-center bg-black overflow-hidden sticky top-0 z-0"
 			>
 				{/* BG RADIAL GRADIENT */}
 				<div
@@ -213,28 +214,21 @@ export default function HeroProductsWrapper() {
 					</div>
 				</header>
 
-				{/* CONTENT HIERARCHY */}
-				<div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none mt-12 md:mt-0">
-					<div
-						className="flex flex-col items-start max-w-fit px-8 md:px-0"
-						style={{ marginTop: '5vh' }}
-					>
-						<h1 className="text-[5vw] md:text-[8vw] font-(--font-heading) leading-none tracking-tight text-[#f2e6cf] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-							ILUMINAÇÃO{' '}
-							<span className="text-white">PREMIUM</span>
-						</h1>
+				{/* CONTENT HIERARCHY - SIMPLE FLEX COLUMN */}
+				<div className="relative z-20 flex flex-col items-start px-8 md:px-24 w-full pointer-events-none">
+					<h1 className="text-[clamp(2.5rem,7vw,10rem)] md:text-[clamp(4rem,8.3vw,18rem)] whitespace-nowrap font-(--font-heading) leading-none tracking-tight text-[#f2e6cf] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] pt-[19vh] ml-[-0.03em]">
+						ILUMINAÇÃO <span className="text-white">PREMIUM</span>
+					</h1>
 
-						<div className="mt-8 flex flex-col items-start gap-8 max-w-sm pointer-events-auto">
-							<p className="!text-white/80 font-sans text-sm md:text-base font-light leading-relaxed">
-								Iluminação projetada para espaços onde cada
-								detalhe importa. Soluções exclusivas para
-								residências, estúdios e ambientes de alto
-								padrão.
-							</p>
-							<button className="rounded-none border border-white px-8 py-4 bg-transparent text-white hover:bg-white hover:text-black transition-all uppercase tracking-[2px] text-[11px] font-semibold backdrop-blur-sm">
-								Conheça nossas linhas
-							</button>
-						</div>
+					<div className="mt-8 flex flex-col items-start gap-8 max-w-[420px] pointer-events-auto">
+						<p className="text-[#f2efe9]/80! font-sans text-[18px] font-light leading-relaxed">
+							Iluminação projetada para espaços onde cada detalhe
+							importa. Soluções exclusivas para residências,
+							estúdios e ambientes de alto padrão.
+						</p>
+						<button className="rounded-none border border-white px-8 py-4 bg-transparent text-white hover:bg-white hover:text-black transition-all uppercase tracking-[2px] text-[11px] font-semibold backdrop-blur-sm">
+							Conheça nossas linhas
+						</button>
 					</div>
 				</div>
 
@@ -266,7 +260,7 @@ export default function HeroProductsWrapper() {
 					className="absolute inset-0 bg-[#050505] z-30 pointer-events-none opacity-0"
 				/>
 
-				{/* BOTTOM GRADIENT TEXT - EMBRAS */}
+				{/* BOTTOM GRADIENT TEXT - EMBRAS - RESTORED TO HERO SECTION */}
 				<div
 					className="absolute left-0 w-full pointer-events-none select-none z-40 flex items-end justify-center overflow-hidden"
 					style={{
@@ -279,6 +273,7 @@ export default function HeroProductsWrapper() {
 						className="text-[14vw] md:text-[14vw] font-(--font-heading) uppercase leading-none tracking-[0.05em] whitespace-nowrap text-[#F8F7F3]"
 						style={{
 							transform: 'translateY(18%)',
+							opacity: 0, // initially hide text completely in hero before JS takes over
 							WebkitMaskImage:
 								'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0.0) 80%, rgba(0,0,0,0) 90%, rgba(0,0,0,0) 100%)',
 							maskImage:
