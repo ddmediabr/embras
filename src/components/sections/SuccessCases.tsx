@@ -218,13 +218,15 @@ export default function SuccessCases() {
 						transform: 'translate(-50%, -50%) scale(0.85)',
 					}}
 				>
-					<div className="w-[64px] h-[64px] relative">
-						<Image
-							src="/favicon.ico"
-							alt="Embras"
-							fill
-							className="object-contain"
-						/>
+					<div className="w-[60px] h-[60px] relative bg-[#050505] rounded-full flex items-center justify-center p-2">
+						<div className="w-full h-full relative">
+							<Image
+								src="/images/embras-form-w.png"
+								alt="Embras"
+								fill
+								className="object-contain"
+							/>
+						</div>
 					</div>
 				</div>
 

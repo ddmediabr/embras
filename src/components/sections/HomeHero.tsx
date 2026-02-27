@@ -90,11 +90,15 @@ export default function HomeHero() {
 			{/* HEADER ABSOLUTE INSIDE HERO */}
 			<header className="absolute top-0 left-0 w-full z-50">
 				<div className="flex items-center justify-between px-8 md:px-24 py-8">
-					<div className="flex items-center gap-2">
-						<span className="w-2 h-2 bg-white rounded-full" />
-						<span className="font-(--font-heading) uppercase tracking-[0.4em] text-sm text-white">
-							Embras
-						</span>
+					<div className="flex items-center">
+						<div className="w-[120px] h-8 relative">
+							<Image
+								src="/images/embras-logo-w.png"
+								alt="Embras"
+								fill
+								className="object-contain"
+							/>
+						</div>
 					</div>
 					<nav className="hidden md:flex gap-10 items-center">
 						{['Projetos', 'Produtos', 'Manifesto', 'Contato'].map(
