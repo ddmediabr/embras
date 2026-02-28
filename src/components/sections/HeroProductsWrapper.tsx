@@ -91,7 +91,7 @@ export default function HeroProductsWrapper() {
 			// Changed from { opacity: 1 } to { opacity: 0 } so it starts invisible on Hero and appears during scroll transition
 			gsap.fromTo(
 				embrasTextRef.current,
-				{ opacity: 0, filter: 'blur(0px)', y: '18%' },
+				{ opacity: 0, filter: 'blur(0px)', y: '22%' },
 				{
 					opacity: 0.3,
 					filter: 'blur(4px)',
@@ -99,30 +99,46 @@ export default function HeroProductsWrapper() {
 					ease: 'none',
 					scrollTrigger: {
 						trigger: carouselTriggerRef.current,
-						start: 'top 75%',
+						start: 'top 95%',
 						end: 'top top',
 						scrub: true,
 					},
 				}
 			)
 
-			// 3. Carousel Horizontal Pin Animation
-			gsap.fromTo(
-				carouselSectionRef.current,
-				{ translateX: 0 },
-				{
-					translateX: '-150vw',
-					ease: 'none',
-					scrollTrigger: {
-						trigger: carouselTriggerRef.current,
-						start: 'top top', // Wait until it's fully overlapping
-						end: '+=2500', // Slower horizontal scroll
-						scrub: 1,
-						pin: true,
-						anticipatePin: 1,
+			// 3. Carousel Horizontal Pin & Static Fade-In Animation (Timeline)
+			// Elements are completely static on screen (pinned at top: 0) while they smoothly fade in.
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: carouselTriggerRef.current,
+					start: 'top top',
+					end: () =>
+						`+=${carouselSectionRef.current!.scrollWidth * 0.5}`, // Shorter scroll distance to increase overall speed
+					scrub: 1,
+					pin: true,
+					anticipatePin: 1,
+					invalidateOnRefresh: true,
+				},
+			})
+
+			// Phase 1: Fade in the content rapidly (first 5% of scroll)
+			tl.to(carouselSectionRef.current, {
+				opacity: 1,
+				duration: 0.15,
+				ease: 'power1.inOut',
+			})
+				// Phase 2: Horizontal scroll perfectly to the right edge
+				.to(carouselSectionRef.current, {
+					x: () => {
+						// We calculate the exact overflow distance taking into account the screen width
+						const offset = window.innerWidth
+						return -(
+							carouselSectionRef.current!.scrollWidth - offset
+						)
 					},
-				}
-			)
+					ease: 'none',
+					duration: 0.95,
+				})
 
 			return () => {
 				ScrollTrigger.getAll().forEach((t) => t.kill())
@@ -180,7 +196,7 @@ export default function HeroProductsWrapper() {
 				/>
 
 				{/* HEADER ABSOLUTE INSIDE HERO */}
-				<header className="absolute top-0 left-0 w-full z-50">
+				<header className="absolute top-0 left-0 w-full z-20">
 					<div className="flex items-center justify-between px-8 md:px-24 py-8">
 						<div className="flex items-center">
 							<div className="w-[120px] h-8 relative">
@@ -293,9 +309,9 @@ export default function HeroProductsWrapper() {
 				{/* Background is explicitly transparent so the dark Hero behind it serves as the scene */}
 				<div
 					ref={carouselSectionRef}
-					className="h-screen flex items-center relative gap-[10vw] px-[10vw] w-[250vw] bg-transparent pt-24"
+					className="h-screen flex items-start relative gap-[8vw] md:gap-[4vw] px-[10vw] w-max bg-transparent opacity-0"
 				>
-					<div className="shrink-0 w-[40vw]">
+					<div className="shrink-0 w-[40vw] h-screen flex items-center">
 						<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] text-white drop-shadow-md">
 							Nossa <br /> Seleção <br />{' '}
 							<span className="text-(--color-muted) opacity-80">
@@ -307,24 +323,26 @@ export default function HeroProductsWrapper() {
 					{products.map((product) => (
 						<div
 							key={product.id}
-							className="w-[80vw] md:w-[40vw] shrink-0"
+							className="w-[85vw] md:w-[28vw] shrink-0 relative h-[70vh] flex flex-col group cursor-pointer overflow-hidden border border-transparent hover:border-(--color-accent)/30"
 						>
-							<span className="product-category mb-4 block">
-								{product.category}
-							</span>
-							{/* Preserving 100% aesthetic: only changing height from aspect-3/4 to h-[50vh] as requested */}
-							<div className="h-[50vh] w-full bg-(--color-bg) border border-(--color-border) mb-8 relative group cursor-pointer overflow-hidden transition-all hover:border-(--color-accent)/30">
-								<Image
-									src={product.image}
-									alt={product.name}
-									fill
-									className="object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
-								/>
-								<div className="absolute inset-0 bg-linear-to-tr from-transparent to-(--color-accent)/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+							{/* Image takes up 70vh space, fully opaque, pinned to top */}
+							<Image
+								src={product.image}
+								alt={product.name}
+								fill
+								className="object-cover transition-transform duration-700 group-hover:scale-110"
+							/>
+							<div className="absolute inset-0 bg-linear-to-tr from-transparent to-[#050505]/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+							{/* Text block positioned absolute inside the image container */}
+							<div className="absolute bottom-[30px] left-[30px] flex flex-col gap-2 z-10 pointer-events-none drop-shadow-lg">
+								<span className="product-category block text-xs md:text-sm tracking-[0.2em] text-white/80 uppercase">
+									{product.category}
+								</span>
+								<h3 className="text-2xl md:text-3xl font-(--font-heading) uppercase text-white tracking-widest leading-none">
+									{product.name}
+								</h3>
 							</div>
-							<h3 className="text-2xl font-(--font-heading) uppercase text-(--color-accent) tracking-widest leading-none">
-								{product.name}
-							</h3>
 						</div>
 					))}
 				</div>

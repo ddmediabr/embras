@@ -27,6 +27,7 @@ export default function Manifesto() {
 	const rightContainerRef = useRef<HTMLDivElement>(null)
 	const lineHRef = useRef<HTMLDivElement>(null)
 	const lineVRef = useRef<HTMLDivElement>(null)
+	const bgRef = useRef<HTMLDivElement>(null)
 	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
@@ -120,6 +121,21 @@ export default function Manifesto() {
 
 			// Ensure words start at 0.2 opacity and are white
 			gsap.set('.word', { opacity: 0.2, color: 'white' })
+
+			// Dedicated non-scrubbed behavior for the Background Glow
+			// This guarantees instant disappearance to avoid trailing when scrolling back up.
+			ScrollTrigger.create({
+				trigger: sectionRef.current,
+				start: 'top top',
+				onEnter: () =>
+					gsap.to(bgRef.current, {
+						opacity: 1,
+						duration: 0.8,
+						ease: 'power2.out',
+					}),
+				onLeaveBack: () =>
+					gsap.to(bgRef.current, { opacity: 0, duration: 0.1 }),
+			})
 
 			// (Horizontal line completion is now handled safely by lineHTl above)
 
@@ -222,8 +238,18 @@ export default function Manifesto() {
 			ref={sectionRef}
 			className="h-screen w-full bg-[#050505] flex overflow-hidden relative"
 		>
+			{/* BACKGROUND GLOW */}
+			<div
+				ref={bgRef}
+				className="absolute inset-0 pointer-events-none opacity-0"
+				style={{
+					background:
+						'radial-gradient(36% 50% at 10% 4.5%, #373737 22.973%, #000 100%)',
+				}}
+			/>
+
 			{/* GRID LAYOUT */}
-			<div className="flex w-full h-full items-start">
+			<div className="flex w-full h-full items-start relative z-10">
 				{/* LEFT COLUMN (70%) */}
 				<div className="w-[70%] h-full flex flex-col justify-between pl-12 md:pl-24 pr-0 py-24 relative overflow-hidden">
 					<div className="flex-1 flex items-center relative pr-12 md:pr-24">
@@ -276,29 +302,15 @@ export default function Manifesto() {
 							key={slide.id}
 							className="manifesto-right-text absolute inset-0 flex items-center justify-center"
 						>
-							<div className="relative h-full flex items-center justify-center">
-								{/* Sombra Offset */}
+							<div className="relative h-full flex items-center justify-center pl-12">
+								{/* Texto Principal com novo estilo Harmonious */}
 								<span
-									className="absolute inset-0 flex items-center justify-center font-(--font-heading) text-white uppercase select-none pointer-events-none"
-									style={{
-										writingMode: 'vertical-rl',
-										fontSize: 'min(20vh, 40vw)',
-										color: '#474747',
-										transform: 'translate(12px, 12px)',
-										lineHeight: 0.8,
-										letterSpacing: '0.05em',
-									}}
-								>
-									{slide.title}
-								</span>
-								{/* Texto Principal */}
-								<span
-									className="relative font-(--font-heading) text-white uppercase select-none"
+									className="harmonious relative font-(--font-heading) uppercase select-none"
 									style={{
 										writingMode: 'vertical-rl',
 										fontSize: 'min(20vh, 40vw)',
 										lineHeight: 0.8,
-										letterSpacing: '0.05em',
+										transform: 'rotate(180deg)',
 									}}
 								>
 									{slide.title}

@@ -69,3 +69,29 @@ p {
 	color: #5b5b5b;
 	line-height: 1.6em;
 }
+
+.harmonious {
+	font-weight: 100; /* Peso da fonte ultrafino */
+	letter-spacing: 2px; /* Espaçamento leve entre as letras */
+	margin: 0;
+
+	/* Padding na direita protege acentos (topo da letra) e na esquerda protege as bases (fundo da letra) em vertical-rl */
+	padding-right: 0.2em;
+	padding-left: 0.2em;
+
+	/* Degradê do topo da letra para a base */
+	background: linear-gradient(to left, #ffffff 10%, #464039 90%);
+
+	/* Aplica o gradiente apenas na área desenhada pela letra */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 768px) {
+	.harmonious {
+		padding-right: 0.2em;
+		padding-left: 0.2em;
+	}
+}
