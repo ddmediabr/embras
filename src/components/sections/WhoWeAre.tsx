@@ -2,7 +2,7 @@ import FragmentedImageReveal from '@/components/atoms/FragmentedImageReveal'
 
 export default function WhoWeAre() {
 	return (
-		<section className="py-36 px-8 md:px-12 bg-(--color-bg)">
+		<section className="py-36 px-8 md:px-12 bg-(--color-bg) relative">
 			<div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
 				<div className="w-full md:w-[60%] relative aspect-4/3 md:aspect-auto md:h-[600px] border border-(--color-border) overflow-hidden">
 					<FragmentedImageReveal
@@ -52,6 +52,15 @@ export default function WhoWeAre() {
 					</div>
 				</div>
 			</div>
+
+			{/* Decorative Line */}
+			<div
+				className="absolute bottom-0 left-0 h-px w-[92%]"
+				style={{
+					background:
+						'linear-gradient(to right, #474747 0%, #474747 60%, transparent 100%)',
+				}}
+			/>
 		</section>
 	)
 }

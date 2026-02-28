@@ -70,8 +70,6 @@ export default function Manifesto() {
 				0.25
 			)
 
-			// Horizontal line is removed from entranceTl to avoid timeline fighting
-
 			// 1.5 Unified Horizontal Line Timeline (spans across the pin)
 			const lineHTl = gsap.timeline({
 				scrollTrigger: {
