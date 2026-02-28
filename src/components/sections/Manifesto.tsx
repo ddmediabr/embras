@@ -244,7 +244,7 @@ export default function Manifesto() {
 				className="absolute inset-0 pointer-events-none opacity-0"
 				style={{
 					background:
-						'radial-gradient(36% 50% at 10% 4.5%, #373737 22.973%, #000 100%)',
+						'radial-gradient(36% 50% at 10% 4.5%, #373737 22.973%, #050505 100%)',
 				}}
 			/>
 

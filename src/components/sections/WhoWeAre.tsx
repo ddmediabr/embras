@@ -1,39 +1,53 @@
+import FragmentedImageReveal from '@/components/atoms/FragmentedImageReveal'
+
 export default function WhoWeAre() {
 	return (
-		<section className="py-36 px-8 md:px-12 bg-(--color-bg) border-t border-(--color-surface)">
-			<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-				<div className="aspect-3/4 bg-(--color-surface) border border-(--color-border) relative max-w-md mx-auto md:ml-0">
-					<div className="absolute inset-0 bg-linear-to-t from-(--color-bg) via-transparent to-transparent opacity-40" />
-					{/* Visual for portrait lighting placeholder */}
-					<div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-(--color-accent)/5 to-transparent" />
-					<div className="absolute bottom-12 left-12">
-						<span className="text-[10px] uppercase tracking-[0.5em] text-(--color-muted)">
-							Founder & Visionary
-						</span>
-						<h4 className="text-xl font-(--font-heading) uppercase tracking-widest mt-2">
-							Eduardo Santos
-						</h4>
-					</div>
+		<section className="py-36 px-8 md:px-12 bg-(--color-bg)">
+			<div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
+				<div className="w-full md:w-[60%] relative aspect-4/3 md:aspect-auto md:h-[600px] border border-(--color-border) overflow-hidden">
+					<FragmentedImageReveal
+						src="/images/case-1.png"
+						alt="Who We Are"
+						slices={12}
+						className="w-full h-full"
+					/>
 				</div>
 
-				<div className="flex flex-col gap-12">
-					<span className="pill items-start text-(--color-muted) uppercase mb-6 block w-fit">
-						Our Essence
-					</span>
-					<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
-						Tradição em <br /> esculpir o <br />{' '}
-						<span className="text-(--color-muted)">invisível.</span>
-					</h2>
+				<div className="w-full md:w-[40%] flex flex-col gap-12">
+					<div className="flex flex-col gap-4">
+						<span className="pill items-center justify-center md:items-start text-(--color-muted) uppercase block w-fit">
+							QUem Somos
+						</span>
+						<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
+							Tradição em <br /> esculpir o <br />{' '}
+							<span className="text-(--color-muted)">
+								invisível.
+							</span>
+						</h2>
+					</div>
 					<div className="flex flex-col gap-6 max-w-lg">
 						<p className="">
-							Com mais de uma década de experiência no mercado de
-							alto padrão, a Embras transforma espaços através de
-							um olhar técnico e artístico sobre a luz.
+							Com mais de uma década de experiência no mercado, a
+							Embras se destaca como uma empresa inovadora no
+							mercado de iluminação, atuando como fabricante e
+							distribuidora de uma ampla gama de produtos de alta
+							qualidade. Nós transformamos espaços através de um
+							olhar técnico e artístico sobre a luz.
 						</p>
 						<p className="">
-							Nossa missão é criar ambientes que não apenas
-							funcionam, mas que emocionam e traduzem o estilo de
-							vida exclusivo de nossos clientes.
+							Fornecemos soluções de iluminação eficientes e
+							elegantes para residências, empresas e espaços
+							públicos. Nossa missão é criar ambientes que não
+							apenas funcionam, mas que emocionam e traduzem o
+							estilo de vida exclusivo de nossos clientes.
+						</p>
+						<p className="">
+							Convidamos todos a conhecer de perto a excelência e
+							a inovação que a Embras Iluminação oferece. Nossa
+							dedicação à qualidade e à satisfação do cliente
+							garante que seus projetos de iluminação sejam
+							executados com o mais alto nível de precisão e
+							excelência.
 						</p>
 					</div>
 				</div>

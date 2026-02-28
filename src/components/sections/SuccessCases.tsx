@@ -162,8 +162,8 @@ export default function SuccessCases() {
 		>
 			{/* HEADER */}
 			<div className="mb-32 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-				<div>
-					<span className="pill items-start text-(--color-muted) uppercase mb-8 block w-fit">
+				<div className="flex flex-col gap-4">
+					<span className="pill items-start text-(--color-muted) uppercase block w-fit">
 						Cases de sucesso
 					</span>
 					<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">

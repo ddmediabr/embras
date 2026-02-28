@@ -155,16 +155,19 @@ export default function ProductLines() {
 	return (
 		<section className="py-36 px-8 bg-[#050505] w-full relative">
 			<div className="max-w-7xl mx-auto flex flex-col items-center">
-				{/* PILL */}
-				<span className="pill items-center text-(--color-muted) uppercase mb-6 w-fit">
-					Linha de Produtos
-				</span>
+				{/* HEADER */}
+				<div className="flex flex-col items-center gap-4 mb-20 text-center">
+					{/* PILL */}
+					<span className="pill items-center justify-center text-(--color-muted) uppercase w-fit">
+						Linha de Produtos
+					</span>
 
-				{/* TITLE */}
-				<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase md:leading-[82px] tracking-tighter text-white mb-20 text-center">
-					O design <br className="md:hidden" />{' '}
-					<span className="text-(--color-muted)">vira arte</span>
-				</h2>
+					{/* TITLE */}
+					<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter text-white">
+						O design <br className="md:hidden" />{' '}
+						<span className="text-(--color-muted)">vira arte</span>
+					</h2>
+				</div>
 
 				{/* TABS */}
 				<div className="flex flex-wrap justify-center mb-24 w-full border-b border-white/5">

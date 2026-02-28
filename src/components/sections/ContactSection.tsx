@@ -16,16 +16,18 @@ export default function ContactSection() {
 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-(--color-accent)/5 blur-[120px] rounded-full pointer-events-none" />
 
 			<div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-16 relative z-10">
-				<span className="pill items-center text-(--color-muted) uppercase animate-fade-in mb-6 w-fit">
-					Project Inquiry
-				</span>
-
-				<h2 className="text-6xl md:text-8xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
-					Vamos <br /> iluminar seu <br />
-					<span className="text-(--color-muted)">
-						próximo projeto.
+				<div className="flex flex-col items-center gap-4">
+					<span className="pill items-center justify-center text-(--color-muted) uppercase animate-fade-in w-fit">
+						Project Inquiry
 					</span>
-				</h2>
+
+					<h2 className="text-6xl md:text-8xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
+						Vamos <br /> iluminar seu <br />
+						<span className="text-(--color-muted)">
+							próximo projeto.
+						</span>
+					</h2>
+				</div>
 
 				<div className="flex flex-col md:flex-row gap-12 mt-8">
 					<div className="flex flex-col items-center md:items-start gap-4 p-12 border border-(--color-border) bg-(--color-surface)/30 backdrop-blur-md group hover:border-(--color-accent)/30 transition-all duration-500">
