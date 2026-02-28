@@ -1,4 +1,9 @@
 import FragmentedImageReveal from '@/components/atoms/FragmentedImageReveal'
+import {
+	AnimatedHeading,
+	AnimatedParagraph,
+	AnimatedPill,
+} from '@/components/atoms/AnimatedTypography'
 
 export default function WhoWeAre() {
 	return (
@@ -15,40 +20,43 @@ export default function WhoWeAre() {
 
 				<div className="w-full md:w-[40%] flex flex-col gap-12">
 					<div className="flex flex-col gap-4">
-						<span className="pill items-center justify-center md:items-start text-(--color-muted) uppercase block w-fit">
+						<AnimatedPill className="items-center justify-center md:items-start text-(--color-muted) uppercase w-fit">
 							QUem Somos
-						</span>
-						<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
+						</AnimatedPill>
+						<AnimatedHeading
+							className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter"
+							direction="left"
+						>
 							Tradição em <br /> esculpir o <br />{' '}
 							<span className="text-(--color-muted)">
 								invisível.
 							</span>
-						</h2>
+						</AnimatedHeading>
 					</div>
 					<div className="flex flex-col gap-6 max-w-lg">
-						<p className="">
+						<AnimatedParagraph className="">
 							Com mais de uma década de experiência no mercado, a
 							Embras se destaca como uma empresa inovadora no
 							mercado de iluminação, atuando como fabricante e
 							distribuidora de uma ampla gama de produtos de alta
 							qualidade. Nós transformamos espaços através de um
 							olhar técnico e artístico sobre a luz.
-						</p>
-						<p className="">
+						</AnimatedParagraph>
+						<AnimatedParagraph className="">
 							Fornecemos soluções de iluminação eficientes e
 							elegantes para residências, empresas e espaços
 							públicos. Nossa missão é criar ambientes que não
 							apenas funcionam, mas que emocionam e traduzem o
 							estilo de vida exclusivo de nossos clientes.
-						</p>
-						<p className="">
+						</AnimatedParagraph>
+						<AnimatedParagraph className="">
 							Convidamos todos a conhecer de perto a excelência e
 							a inovação que a Embras Iluminação oferece. Nossa
 							dedicação à qualidade e à satisfação do cliente
 							garante que seus projetos de iluminação sejam
 							executados com o mais alto nível de precisão e
 							excelência.
-						</p>
+						</AnimatedParagraph>
 					</div>
 				</div>
 			</div>
