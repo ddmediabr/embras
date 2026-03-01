@@ -3,6 +3,7 @@ import ProductLines from '@/components/sections/ProductLines'
 import Manifesto from '@/components/sections/Manifesto'
 import SuccessCases from '@/components/sections/SuccessCases'
 import WhoWeAre from '@/components/sections/WhoWeAre'
+import TestimonialsHeader from '@/components/sections/TestimonialsHeader'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import ContactSection from '@/components/sections/ContactSection'
 
@@ -29,6 +30,7 @@ export default function Home() {
 				<SuccessCases />
 				<Manifesto />
 				<WhoWeAre />
+				<TestimonialsHeader />
 				<TestimonialsSection />
 				<ContactSection />
 			</div>

@@ -266,7 +266,7 @@ export const AnimatedPill: React.FC<AnimatedPillProps> = ({
 	return (
 		<div
 			ref={containerRef}
-			className={`inline-flex flex-col tracking-[0.4em] not-italic text-[14px] font-medium bg-transparent border-none p-0 items-center sm:items-start ${className}`}
+			className={`inline-flex flex-col tracking-[0.4em] not-italic text-[14px] font-medium bg-transparent border-none p-0 ${className}`}
 			style={{ visibility: 'hidden' }}
 			{...props}
 		>

@@ -162,7 +162,7 @@ export default function ProductLines() {
 				{/* HEADER */}
 				<div className="flex flex-col items-center gap-4 mb-20 text-center">
 					{/* PILL */}
-					<AnimatedPill className="text-(--color-muted) uppercase w-fit">
+					<AnimatedPill className="text-(--color-muted) uppercase w-fit items-center">
 						Linha de Produtos
 					</AnimatedPill>
 

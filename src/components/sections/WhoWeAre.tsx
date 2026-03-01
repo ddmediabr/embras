@@ -63,10 +63,10 @@ export default function WhoWeAre() {
 
 			{/* Decorative Line */}
 			<div
-				className="absolute bottom-0 left-0 h-px w-[92%]"
+				className="absolute bottom-0 right-0 h-px w-[85%]"
 				style={{
 					background:
-						'linear-gradient(to right, #474747 0%, #474747 60%, transparent 100%)',
+						'linear-gradient(to left, #474747 0%, #474747 60%, transparent 100%)',
 				}}
 			/>
 		</section>

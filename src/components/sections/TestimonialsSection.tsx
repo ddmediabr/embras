@@ -7,28 +7,26 @@ import { useGSAP } from '@gsap/react'
 const testimonials = [
 	{
 		id: 1,
-		quote: 'Exceptional experience from start to finish. The team was highly communicative and took the time to truly grasp our vision. Their creative direction was spot-on, delivering a final product that exceeded our expectations.',
+		quote: 'A iluminação da nossa casa mudou completamente a atmosfera dos ambientes. A equipe da Embras conseguiu traduzir exatamente a sofisticação e o aconchego que procurávamos. Cada detalhe foi pensado com uma precisão impressionante.',
 	},
 	{
 		id: 2,
-		quote: 'Professional, reliable, and incredibly talented. The team not only understood our needs but also provided innovative designs that perfectly aligned with our brand identity. Highly recommended!',
+		quote: 'O projeto luminotécnico para a nossa fazenda superou todas as expectativas. Eles conseguiram valorizar a arquitetura rústica e a paisagem externa, criando cenários que encantam de forma acolhedora e com extrema elegância.',
 	},
 	{
 		id: 3,
-		quote: 'Working with this team was a seamless experience from start to finish. They took our vision and transformed it into a stunning, functional space that exceeded our expectations.',
+		quote: 'Profissionalismo impecável. Nosso estúdio precisava de uma luz técnica específica, mas que mantivesse um design estético limpo. O resultado final entregou funcionalidade perfeita e uma beleza visual inigualável.',
 	},
 	{
 		id: 4,
-		quote: 'The attention to detail and dedication to finding the perfect lighting solutions for our space were unparalleled. An absolute joy to collaborate with from day one.',
+		quote: 'A atenção aos detalhes e o cuidado na escolha das peças foram o grande diferencial. Trabalhar com a Embras é ter a certeza de que seu projeto está nas mãos de quem realmente entende a arte de modular a luz.',
 	},
 ]
 
 export default function TestimonialsSection() {
 	const sectionRef = useRef<HTMLElement>(null)
-	const lineHRef = useRef<HTMLDivElement>(null)
-	const lineVRef = useRef<HTMLDivElement>(null)
-	const titleRef = useRef<HTMLDivElement>(null)
 	const quoteIconRef = useRef<HTMLDivElement>(null)
+	const glowRef = useRef<HTMLDivElement>(null)
 	const trackRef = useRef<HTMLDivElement>(null)
 	const dotsRefs = useRef<(HTMLDivElement | null)[]>([])
 	const textRefs = useRef<(HTMLParagraphElement | null)[]>([])
@@ -50,16 +48,8 @@ export default function TestimonialsSection() {
 			// ==============================
 			// ESTADOS INICIAIS
 			// ==============================
-			gsap.set(lineHRef.current, {
-				scaleX: 0,
-				transformOrigin: 'left center',
-			})
-			gsap.set(lineVRef.current, {
-				scaleY: 0,
-				transformOrigin: 'center top',
-			})
-			gsap.set(titleRef.current, { opacity: 0.4 })
 			gsap.set(quoteIconRef.current, { opacity: 0.4 })
+			gsap.set(glowRef.current, { opacity: 0 })
 
 			// Todos os textos começam cinza
 			textRefs.current.forEach((el) => {
@@ -93,27 +83,16 @@ export default function TestimonialsSection() {
 				},
 			})
 
-			entranceTl
-				.to(
-					lineHRef.current,
-					{ scaleX: 1, duration: 1.2, ease: 'power3.out' },
-					0
-				)
-				.to(
-					lineVRef.current,
-					{ scaleY: 1, duration: 1.2, ease: 'power3.out' },
-					0
-				)
-				.to(
-					titleRef.current,
-					{ opacity: 1, duration: 1, ease: 'power2.out' },
-					0.3
-				)
-				.to(
-					quoteIconRef.current,
-					{ opacity: 1, duration: 1, ease: 'power2.out' },
-					0.3
-				)
+			entranceTl.to(
+				quoteIconRef.current,
+				{ opacity: 1, duration: 1, ease: 'power2.out' },
+				0.3
+			)
+			entranceTl.to(
+				glowRef.current,
+				{ opacity: 1, duration: 1.5, ease: 'power2.out' },
+				0.1
+			)
 
 			// Primeiro item: cor branca e dots visíveis
 			if (textRefs.current[0]) {
@@ -145,8 +124,9 @@ export default function TestimonialsSection() {
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: 'top top',
-					// Adicionamos uma viewport extra para o hold period
-					end: `+=${total * window.innerHeight}`,
+					// Reduzimos o tamanho total do pin em 25% para que seja mais rápido
+					// trocar de depoimento com menos esforço de scroll
+					end: `+=${total * window.innerHeight * 0.75}`,
 					pin: true,
 					scrub: 0.5,
 					snap: {
@@ -167,7 +147,8 @@ export default function TestimonialsSection() {
 							)
 						},
 						duration: { min: 0.1, max: 0.2 },
-						ease: 'power1.inOut',
+						delay: 0, // Delay ZERO faz o snap entrar em ação instantaneamente
+						ease: 'power2.inOut',
 					},
 				},
 			})
@@ -251,40 +232,39 @@ export default function TestimonialsSection() {
 	return (
 		<section
 			ref={sectionRef}
-			className="h-screen w-full bg-[#050505] relative overflow-hidden flex flex-row"
+			className="h-screen w-full bg-[#050505] relative flex flex-row z-10"
 		>
-			{/* ====== LINHAS DECORATIVAS (#474747) ====== */}
+			{/* Background Glow Effect */}
 			<div
-				ref={lineHRef}
-				className="absolute top-[12%] left-0 w-[12%] h-px bg-[#474747] z-10"
+				ref={glowRef}
+				className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-(--color-accent)/5 blur-[120px] rounded-full pointer-events-none"
 			/>
-			<div
-				ref={lineVRef}
-				className="absolute top-0 left-[20%] w-px h-[10%] bg-[#474747] z-10"
-			/>
-
 			{/* ====== COLUNA ESQUERDA (20%) ====== */}
 			<div className="w-[20%] h-full relative flex flex-col">
-				{/* Feedback: abaixo da linha horizontal */}
-				<div
-					ref={titleRef}
-					className="absolute top-[12%] left-6 lg:left-12 mt-16 flex items-center gap-3 text-white text-xs md:text-[2.5rem] font-bold tracking-[0.1em] uppercase leading-[1.5] z-20"
-				>
-					O que dizem de nós
-				</div>
-
 				{/* Ícone aspas: centralizado verticalmente */}
 				<div
 					ref={quoteIconRef}
 					className="w-full h-full flex items-center justify-center pl-6 lg:pl-12"
 				>
 					<svg
-						className="w-20 h-20 md:w-28 md:h-28 xl:w-40 xl:h-40 text-white"
-						viewBox="0 0 100 100"
-						fill="currentColor"
+						className="w-24 h-24 md:w-32 md:h-32 xl:w-48 xl:h-48"
+						viewBox="0 0 24 24"
+						fill="url(#quoteGradient)"
 						xmlns="http://www.w3.org/2000/svg"
 					>
-						<path d="M42.5 35.5h-15l-10 30h15v15h20v-30h-15l5-15h-5zm45 0h-15l-10 30h15v15h20v-30h-15l5-15h-5z" />
+						<defs>
+							<linearGradient
+								id="quoteGradient"
+								x1="0%"
+								y1="0%"
+								x2="100%"
+								y2="0%"
+							>
+								<stop offset="10%" stopColor="#414141" />
+								<stop offset="90%" stopColor="#ffffff" />
+							</linearGradient>
+						</defs>
+						<path d="M3.5 17.5V13.844C3.5 11.517 4.136 9.533 5.408 7.892C6.697 6.233 8.356 5.167 10.385 4.692V6.623C8.674 7.218 7.42 8.361 6.622 10.05C7.03 9.949 7.45 9.898 7.882 9.898C8.955 9.898 9.854 10.275 10.578 11.028C11.302 11.782 11.664 12.693 11.664 13.763C11.664 14.836 11.285 15.748 10.528 16.5C9.782 17.252 8.878 17.628 7.818 17.628H3.5V17.5ZM15 17.5V13.844C15 11.517 15.636 9.533 16.908 7.892C18.197 6.233 19.856 5.167 21.885 4.692V6.623C20.174 7.218 18.92 8.361 18.122 10.05C18.53 9.949 18.95 9.898 19.382 9.898C20.455 9.898 21.354 10.275 22.078 11.028C22.802 11.782 23.164 12.693 23.164 13.763C23.164 14.836 22.785 15.748 22.028 16.5C21.282 17.252 20.378 17.628 19.318 17.628H15V17.5Z" />
 					</svg>
 				</div>
 			</div>
