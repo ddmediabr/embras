@@ -3,6 +3,11 @@ import Image from 'next/image'
 import { useRef, useState, useEffect } from 'react'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 import { useGSAP } from '@gsap/react'
+import {
+	AnimatedHeading,
+	AnimatedParagraph,
+	AnimatedPill,
+} from '@/components/atoms/AnimatedTypography'
 
 export default function SuccessCases() {
 	const sectionRef = useRef<HTMLElement>(null)
@@ -163,23 +168,23 @@ export default function SuccessCases() {
 			{/* HEADER */}
 			<div className="mb-32 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
 				<div className="flex flex-col gap-4">
-					<span className="pill items-start text-(--color-muted) uppercase block w-fit">
+					<AnimatedPill className="text-(--color-muted) uppercase w-fit">
 						Cases de sucesso
-					</span>
-					<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
+					</AnimatedPill>
+					<AnimatedHeading className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter">
 						Onde a luz <br />
 						encontra a <br />
 						<span className="text-(--color-muted)">
 							arquitetura
 						</span>
-					</h2>
+					</AnimatedHeading>
 				</div>
 				<div className="max-w-md">
-					<p>
+					<AnimatedParagraph>
 						Nossos projetos são intervenções artísticas que
 						valorizam cada volume, material e textura do ambiente
 						construído.
-					</p>
+					</AnimatedParagraph>
 				</div>
 			</div>
 

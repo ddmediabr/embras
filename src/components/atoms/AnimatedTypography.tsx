@@ -105,7 +105,7 @@ export const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
 				},
 				xPercent: 0,
 				yPercent: 0,
-				duration: 1.5,
+				duration: 1.2,
 				delay: delay,
 				ease: 'power4.out',
 				stagger: 0.15,
@@ -166,7 +166,7 @@ export const AnimatedParagraph: React.FC<AnimatedParagraphProps> = ({
 						toggleActions: 'play none none none',
 					},
 					yPercent: 0,
-					duration: 1.5,
+					duration: 1,
 					delay: delay,
 					ease: 'power4.out',
 					stagger: 0.05,
@@ -203,10 +203,20 @@ export const AnimatedPill: React.FC<AnimatedPillProps> = ({
 	const containerRef = useRef<HTMLDivElement>(null)
 	const textRef = useRef<HTMLSpanElement>(null)
 	const lineRef = useRef<HTMLDivElement>(null)
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
 
 	useGSAP(
 		() => {
-			if (!containerRef.current || !textRef.current || !lineRef.current)
+			if (
+				!mounted ||
+				!containerRef.current ||
+				!textRef.current ||
+				!lineRef.current
+			)
 				return
 
 			gsap.set(containerRef.current, { visibility: 'visible' })
@@ -250,7 +260,7 @@ export const AnimatedPill: React.FC<AnimatedPillProps> = ({
 
 			return () => split.revert()
 		},
-		{ scope: containerRef }
+		{ scope: containerRef, dependencies: [mounted] }
 	)
 
 	return (

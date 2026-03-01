@@ -4,6 +4,10 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
 import { useGSAP } from '@gsap/react'
+import {
+	AnimatedHeading,
+	AnimatedPill,
+} from '@/components/atoms/AnimatedTypography'
 
 // Hardcoded data as requested
 const productLines = [
@@ -158,15 +162,15 @@ export default function ProductLines() {
 				{/* HEADER */}
 				<div className="flex flex-col items-center gap-4 mb-20 text-center">
 					{/* PILL */}
-					<span className="pill items-center justify-center text-(--color-muted) uppercase w-fit">
+					<AnimatedPill className="text-(--color-muted) uppercase w-fit">
 						Linha de Produtos
-					</span>
+					</AnimatedPill>
 
 					{/* TITLE */}
-					<h2 className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter text-white">
+					<AnimatedHeading className="text-5xl md:text-7xl font-(--font-heading) uppercase leading-tight md:leading-[82px] tracking-tighter text-white">
 						O design <br className="md:hidden" />{' '}
 						<span className="text-(--color-muted)">vira arte</span>
-					</h2>
+					</AnimatedHeading>
 				</div>
 
 				{/* TABS */}
